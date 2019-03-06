@@ -1,0 +1,43 @@
+﻿@model zoo_shop.Models.PetForm
+
+@{
+    ViewData["Title"] = "Select breed and add name";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<h1>@Model.type</h1>
+
+<div>
+    <p>Select breed</p>
+    <form asp-action="Add_finish" method="post">
+
+        <select name="Breed">
+            @if (Model.type == "Dog")
+            {
+                @foreach (string s in Model.Breed_dog)
+                {
+                    <option value=@s> @s </option>
+                }
+            }
+            @if (Model.type == "Cat")
+            {
+                @foreach (string s in Model.Breed_cat)
+                {
+                    <option value=@s> @s </option>
+                }
+            }
+        </select>
+        <p></p>
+        <label for="Name">Input name of pet</label>
+        <p></p>
+        <input type="hidden" value=@Model.type name="type" />
+        <input type="text" name="Name" />
+        <input type="submit" value="Add pet" class="btn btn-default" />
+
+    </form>
+</div>
+<div>
+    <a asp-action="Add">Back to List</a>
+</div>
+

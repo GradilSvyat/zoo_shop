@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show</title>
+</head>
+<body>
+    <div>
+        <h1>Show pets</h1>
+        @foreach (Pet s in Petshop.pet_collection)
+        {
+            <p>@s.Introduce()</p>
+        }
+
+
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+</html>
